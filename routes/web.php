@@ -12,10 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers;
+
+Route::get('/', function () {
+    return redirect('/rubros');
+});
 
 /* Incisio 1 */
 
-Route::get('/rubros', 'App\Http\Controllers\rubrosController@index');
+Route::get('/rubros', [Controllers\rubrosController::class, 'index']);
 Route::get('/rubros/{id}', 'App\Http\Controllers\rubrosController@show')->name('rubros.show');
 
 /* Inciso 2 */
